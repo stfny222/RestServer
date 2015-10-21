@@ -13,11 +13,11 @@ module.exports = function () {
 		},
 	});
 
-	models['Dependency'] = sequelize.import(path.join(__dirname, "\\models\\Dependency"));
-	models['Event'] = sequelize.import(path.join(__dirname, "\\models\\Event"));
-	models['EventDate'] = sequelize.import(path.join(__dirname, "\\models\\EventDate"));
-	models['Person'] = sequelize.import(path.join(__dirname, "\\models\\Person"));
-	models['Field'] = sequelize.import(path.join(__dirname, "\\models\\Field"));
+	models['Dependency'] = sequelize.import(path.join(__dirname, "\/models\/Dependency"));
+	models['Event'] = sequelize.import(path.join(__dirname, "\/models\/Event"));
+	models['EventDate'] = sequelize.import(path.join(__dirname, "\/models\/EventDate"));
+	models['Person'] = sequelize.import(path.join(__dirname, "\/models\/Person"));
+	models['Field'] = sequelize.import(path.join(__dirname, "\/models\/Field"));
 
 	//models['Dependency'].hasMany(models['Event'], {as: 'Events'});
 	models['Event'].belongsTo(models['Dependency'], {foreignKey: 'dependency_id'});
