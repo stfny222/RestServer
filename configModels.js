@@ -51,7 +51,7 @@ module.exports = function () {
 		  			})
 		  		});*/
 			/*console.log("dep created", dep);*/
-		});
+		//});
 	});
 
 	return models;
