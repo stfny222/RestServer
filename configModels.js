@@ -28,7 +28,7 @@ module.exports = function () {
 	models['Person'].hasMany(models['Field'], {constraints: true});
 	models['Field'].belongsTo(models['Person'], {foreignKey: 'PersonId',constraints: true});
 
-	sequelize.sync({force: true}).then(function () {
+	sequelize.sync(/*{force: true}*/);/*.then(function () {
 		return models['Dependency'].create(
 				{
 					name : "Dependencia 1"
@@ -53,7 +53,7 @@ module.exports = function () {
 		  		});
 			console.log("dep created", dep);
 		});
-	});
+	});*/
 
 	return models;
 }
