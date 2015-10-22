@@ -69,10 +69,10 @@ sequelize.sync().then(function () {
 	res.json(dependencies);
 });*/
 
-app.post('/events', function (req,res){
+/*app.post('/events', function (req,res){
 	var dependencies = '';
 	res.json(dependencies);
-});
+});*/
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
