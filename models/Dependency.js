@@ -2,7 +2,7 @@ var Sequelize = require('sequelize');
 
 module.exports = function (sequelize, DataTypes) {
   var Dependency = sequelize.define('Dependency', { 
-    dependency_id: {
+    id: {
       type: Sequelize.UUID,
       defaultValue: Sequelize.UUIDV1,
       primaryKey: true
