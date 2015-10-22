@@ -16,7 +16,7 @@ module.exports = function (models) {
 			}
 		    res.json(_.map(deps, function (obj) {
 		    	return {
-		    		dependency_id: obj.dependency_id,
+		    		id: obj.id,
 		    		name: obj.name
 		    	}
 		    }));
@@ -52,7 +52,7 @@ module.exports = function (models) {
 
 	var getDependecy = function (req, res) {
 
-		var id = req.body.dependency_id;
+		var id = req.body.id;
 
 		Dependency.findById(id).then(function (dep, err) {
 			if (err) {
