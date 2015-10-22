@@ -3,7 +3,10 @@ var _ = require('underscore');
 module.exports = function (models) {
 
 	var Dependency = models.Dependency,
-		Event  = models.Event;
+		Event  = models.Event,
+		EventDate = models.EventDate,
+		Person = models.Person,
+		Field = models.Field;
 
 	var getDependencyNames = function (req, res) {
 		Dependency.findAll().then(function (deps, err) {
@@ -22,7 +25,22 @@ module.exports = function (models) {
 
 	var getDependecies = function (req, res) {
 		Dependency.findAll({
-			include: [Event]
+			include: [
+		        {
+		            model: Event,
+		            include: [
+			            {
+			            	model: EventDate,
+			            	include: [
+			            		{
+					            	model: Person,
+					            	include: [Field]
+					        	}
+			            	]
+			        	}
+		            ]
+		        }
+		    ]
 		}).then(function (deps, err) {
 			if (err) {
 				res.status(500);
