@@ -5,15 +5,13 @@ var models = require('./configModels')();
 var routes = require('./routes')(app, models);
 
 
-app.set('port', (process.env.PORT || 3000));
+app.set('port', (process.env.PORT || 8080));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 
 //Definir los modelos
-
-
 
 /*
 Dependency.hasMany(Event, {as: 'Events'});
@@ -30,12 +28,6 @@ sequelize.sync().then(function () {
   });
 
 });*/
-
-
-
-
-
-
 
 /*app.get('/', function (req, res) {
 	res.send('<form method="POST" action="/dependencies">'+

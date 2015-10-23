@@ -36,6 +36,7 @@ module.exports = function () {
 			).then(function (dep) {
 				return models['Event'].create({    
 		    		name: 'Eventito',
+		    		img: 'http://cdnstatic.visualizeus.com/thumbs/1f/ba/art-1fbacc6e726490136110b4d7f0ac31e0_h.jpg',
 		    		DependencyId: dep.id
 		  		}).then(function (ev) {
 		  			return models['EventDate'].create({
@@ -47,6 +48,7 @@ module.exports = function () {
 		  				return models['Person'].create({
 		  					firstName: 'Estefany',
 		  					lastName: 'Valdivieso',
+		  					filterValue: 'Ingenieria de Sistemas',
 		  					EventDateId: evdate.id
 		  				})
 		  			})
@@ -54,6 +56,33 @@ module.exports = function () {
 			console.log("dep created", dep);
 		});
 	})*/;
+
+	/*sequelize.sync().then(function () {
+		return models['Dependency'].create(
+				{
+					name : "Dependencia 2"
+				}
+			).then(function (dep) {
+				return models['Event'].create({    
+		    		name: 'Eventote',
+		    		DependencyId: dep.id
+		  		}).then(function (ev) {
+		  			return models['EventDate'].create({
+		  				date: new Date(),
+		  				duration: 210,
+		  				location: 'Por ahí',
+		  				EventId: ev.id
+		  			}).then(function (evdate) {
+		  				return models['Person'].create({
+		  					firstName: 'Giwiro',
+		  					lastName: 'Davalos',
+		  					EventDateId: evdate.id
+		  				})
+		  			})
+		  		});
+			console.log("dep created", dep);
+		});
+	});*/
 
 	return models;
 }

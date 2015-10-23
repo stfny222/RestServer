@@ -28,8 +28,8 @@ module.exports = function (models) {
 			include: [
 		        {
 		            model: Event,
-		            include: [
-			            {
+		            include: [EventDate
+			            /*{
 			            	model: EventDate,
 			            	include: [
 			            		{
@@ -37,7 +37,7 @@ module.exports = function (models) {
 					            	include: [Field]
 					        	}
 			            	]
-			        	}
+			        	}*/
 		            ]
 		        }
 		    ]
@@ -52,9 +52,28 @@ module.exports = function (models) {
 
 	var getDependecy = function (req, res) {
 
-		var id = req.body.id;
+		//var id = req.body.id;
+		var id = req.query.id;
 
-		Dependency.findById(id).then(function (dep, err) {
+		if (!id) {
+			res.json({
+				error: 'No hay id'
+			});
+		}
+
+		Dependency
+		.findAll({
+  			where: {
+				id: id
+  			},
+  			include: [
+		        {
+		            model: Event,
+		            include: [EventDate]
+		        }
+		    ]
+  		})
+		.then(function (dep, err) {
 			if (err) {
 				res.status(500);
 				res.send("Error :(");
