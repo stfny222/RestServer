@@ -31,19 +31,8 @@ module.exports = function (models) {
 			}				
 		    res.json(_.map(people, function (obj) {
 		    	return obj.filterValue;
-		    }));
+		    }));	
 	    });
-
-		/*Person.aggregate('filterValue', 'DISTINCT', {plain: false})
-			.then(function (people, err) {
-				if (err) {
-					res.status(500);
-					res.send("Error :(");
-				}				
-			    res.json(_.map(people, function (obj) {
-		    	return obj.DISTINCT;
-		    }));
-		});*/
 	}
 
 	var getPeople = function(req, res){
@@ -96,9 +85,33 @@ module.exports = function (models) {
 		});
 	}
 
+	var addPerson = function(req, res){
+		console.log("PAPI!!!!!!!!!!!!!!!!!!!!!");
+		
+		console.log(req);
+		console.log(req.body);
+		console.log(req.params);
+		console.log(req.query);
+
+		/*
+		Person.create({}).then(function(person) {
+
+		})*/
+
+		res.json({
+			status: "yes"
+		});
+	};
+
+	var updatePersonAssist = function(req, res){
+		
+	};
+
 	return {
 		getFilters : getFilters,
 		getPeople : getPeople,
-		getPeopleByFilter : getPeopleByFilter
+		getPeopleByFilter : getPeopleByFilter,
+		addPerson : addPerson,
+		updatePersonAssist : updatePersonAssist
 	}
 }

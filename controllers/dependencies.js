@@ -62,6 +62,7 @@ module.exports = function (models) {
 		}
 
 		Dependency
+
 		.findAll({
   			where: {
 				id: id
