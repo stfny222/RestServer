@@ -62,25 +62,24 @@ module.exports = function (models) {
 		}
 
 		Dependency
-
-		.findAll({
-  			where: {
-				id: id
-  			},
-  			include: [
-		        {
-		            model: Event,
-		            include: [EventDate]
-		        }
-		    ]
-  		})
-		.then(function (dep, err) {
-			if (err) {
-				res.status(500);
-				res.send("Error :(");
-			}
-		    res.json(dep);
-		});
+			.findAll({
+	  			where: {
+					id: id
+	  			},
+	  			include: [
+			        {
+			            model: Event,
+			            include: [EventDate]
+			        }
+			    ]
+	  		})
+			.then(function (dep, err) {
+				if (err) {
+					res.status(500);
+					res.send("Error :(");
+				}
+			    res.json(dep);
+			});
 	}
 
 	return {
